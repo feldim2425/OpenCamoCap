@@ -39,6 +39,28 @@ load("@rules_foreign_cc//foreign_cc:repositories.bzl", "rules_foreign_cc_depende
 rules_foreign_cc_dependencies()
 
 
+
+new_local_repository(
+    name = "linux_opencv",
+    build_file = "@//third_party:opencv_linux.BUILD",
+    path = "/usr",
+)
+
+new_local_repository(
+    name = "macos_opencv",
+    build_file = "@//third_party:opencv_macos.BUILD",
+    path = "/usr/local/opt/opencv@3",
+)
+
+new_local_repository(
+    name = "windows_opencv",
+    build_file = "@//third_party:opencv_windows.BUILD",
+    path = "C:\\opencv\\build",
+)
+
+
+
+
 http_archive(
     name = "com_google_mediapipe",
     sha256 = "157d13882da323f5cf00cfabadf491bbb071d3ed62e328caec93e392f767df9f",
@@ -53,6 +75,7 @@ http_archive(
     sha256 = "19713a36c9f32b33df59d1c79b4958434cb005b5b47dc5400a7a4b078111d9b5",
     url = "https://github.com/gflags/gflags/archive/v2.2.2.zip",
 )
+
 
 # 2020-08-21
 http_archive(
