@@ -1,0 +1,5 @@
+#pragma once
+
+#define CAMOCAP_NAMESPACE ocamocap
+#define CAMOCAP_NAMESPACE_BEGIN namespace CAMOCAP_NAMESPACE {
+#define CAMOCAP_NAMESPACE_END }

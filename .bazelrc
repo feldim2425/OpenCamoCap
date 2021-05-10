@@ -5,6 +5,8 @@ common --experimental_repo_remote_exec
 build --jobs 128
 build --define='absl=1'
 build --enable_platform_specific_config
+build --define MEDIAPIPE_DISABLE_GPU=1
+build --strategy=CppCompile=standalone
 
 # Linux
 build:linux --cxxopt=-std=c++17
