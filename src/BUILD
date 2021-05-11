@@ -8,11 +8,9 @@ cc_library(
     name = "opencamocap_common",
     srcs = glob([
         "common/*.cpp",
-        "common/frame/*.cpp"
     ], exclude = ["main.cpp"]),
     hdrs = glob([
         "common/*.hpp",
-        "common/frame/*.hpp"
     ]),
     includes = ["."],
     deps =  [
