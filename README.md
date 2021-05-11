@@ -1,4 +1,11 @@
-# OpenCamoCap
+# OpenCamoCap [WIP]
+
+## WORK IN PROGRESS 
+
+**THIS PROJECT IS NOT IN WORKING CONDITION AT THE MOMENT**
+
+
+---
 
 OpenSource camera face capture/tracking software.
 
