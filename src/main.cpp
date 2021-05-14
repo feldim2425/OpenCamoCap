@@ -3,6 +3,8 @@
 #include "common/Common.hpp"
 #include "processor/CMediaPipeFace.hpp"
 
+#include "absl/flags/flag.h"
+#include "absl/flags/parse.h"
 
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
@@ -10,11 +12,12 @@
 int main(int argc, char* argv[]) {
 
     bool running = true;
-    cv::VideoCapture capture {1};
     cv::Mat frame, frame_mod;
 
     google::InitGoogleLogging(argv[0]);
+    absl::ParseCommandLine(argc, argv);
 
+    cv::VideoCapture capture {1};
     CAMOCAP_NAMESPACE::CMediaPipeFace mediapipe;
 
     if(!mediapipe.isOk()){

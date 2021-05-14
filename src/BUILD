@@ -40,6 +40,11 @@ cc_library(
 cc_binary(
     name = "main",
     srcs = ["main.cpp"],
-    deps = [":opencamocap_common", ":opencamocap_mediapipeface"],
+    deps = [
+        ":opencamocap_common",
+        ":opencamocap_mediapipeface",
+        "@com_google_absl//absl/flags:flag",
+        "@com_google_absl//absl/flags:parse",
+        ],
     visibility = ["//visibility:public"],
 )

@@ -76,6 +76,12 @@ http_archive(
     url = "https://github.com/gflags/gflags/archive/v2.2.2.zip",
 )
 
+http_archive(
+    name = "com_google_absl",
+    urls = ["https://github.com/abseil/abseil-cpp/archive/20200923.tar.gz"],
+    strip_prefix = "abseil-cpp-20200923",
+)
+
 
 # 2020-08-21
 http_archive(
