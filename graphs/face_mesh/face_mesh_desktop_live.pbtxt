@@ -54,8 +54,8 @@ node {
 
 # Subgraph that renders face-landmark annotation onto the input image.
 node {
-  calculator: "FaceRendererCpu"
-  input_stream: "IMAGE:throttled_input_video"
+  calculator: "FaceRendererGpuCustom"
+# input_stream: "IMAGE:throttled_input_video"
   input_stream: "LANDMARKS:multi_face_landmarks"
   input_stream: "NORM_RECTS:face_rects_from_landmarks"
   input_stream: "DETECTIONS:face_detections"
