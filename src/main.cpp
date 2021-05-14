@@ -35,7 +35,6 @@ int main(int argc, char* argv[]) {
         capture >> frame;
         cv::cvtColor(frame, frame_mod, cv::COLOR_BGR2RGB);
 
-        std::cout << "Capture frame!" << std::endl;
         mediapipe.runDetection(frame_mod);
 
         int pressed_key = cv::waitKey(5);

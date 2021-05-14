@@ -88,6 +88,8 @@ void CMediaPipeFace::runDetection(cv::Mat image) {
     auto input_frame = absl::make_unique<mediapipe::ImageFrame>(
         mediapipe::ImageFormat::SRGB, image.cols, image.rows,
         mediapipe::ImageFrame::kDefaultAlignmentBoundary);
+    cv::Mat input_frame_mat = mediapipe::formats::MatView(input_frame.get());
+    image.copyTo(input_frame_mat);
 
     size_t frame_timestamp_us =
         (double)cv::getTickCount() / (double)cv::getTickFrequency() * 1e6;
@@ -97,15 +99,14 @@ void CMediaPipeFace::runDetection(cv::Mat image) {
     mediapipe::Packet packet;
     
     if (!this -> m_poller -> Next(&packet)) {
-        std::cout << "Fail" << std::endl;
+        std::cout << "FAIL" << std::endl;
         return;
     }
-    std::cout << "HELLO" << std::endl;
     auto& output_frame = packet.Get<mediapipe::ImageFrame>();
 
     cv::Mat output_frame_mat = mediapipe::formats::MatView(&output_frame);
     cv::cvtColor(output_frame_mat, output_frame_mat, cv::COLOR_RGB2BGR);
-    cv::imshow("Hello", output_frame_mat);
+    cv::imshow("FeldVIM was here!", output_frame_mat);
 }
 
 CAMOCAP_NAMESPACE_END

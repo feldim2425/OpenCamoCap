@@ -1,8 +1,4 @@
 
-load(
-    "@com_google_mediapipe//mediapipe/framework/tool:mediapipe_graph.bzl",
-    "mediapipe_binary_graph",
-)
 
 config_setting(
     name = "no_mediapipe_true",
@@ -31,6 +27,7 @@ cc_library(
     deps =  [    
                 ":opencamocap_common",
                 "//third_party:opencv",
+                "//graphs:face_renderer",
                 "@com_google_mediapipe//mediapipe/graphs/face_mesh:desktop_live_calculators",
                 "@com_google_mediapipe//mediapipe/framework:calculator_framework",
                 "@com_google_mediapipe//mediapipe/framework/port:parse_text_proto"
