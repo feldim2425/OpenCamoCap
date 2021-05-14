@@ -1,4 +1,9 @@
 
+load(
+    "@com_google_mediapipe//mediapipe/framework/tool:mediapipe_graph.bzl",
+    "mediapipe_binary_graph",
+)
+
 config_setting(
     name = "no_mediapipe_true",
     define_values = { "no_mediapipe": "True" }
@@ -25,7 +30,8 @@ cc_library(
     hdrs = ["processor/CMediaPipeFace.hpp"],
     deps =  [    
                 ":opencamocap_common",
-                "@com_github_glog_glog//:glog",
+                "//third_party:opencv",
+                "@com_google_mediapipe//mediapipe/graphs/face_mesh:desktop_live_calculators",
                 "@com_google_mediapipe//mediapipe/framework:calculator_framework",
                 "@com_google_mediapipe//mediapipe/framework/port:parse_text_proto"
             ],
